@@ -1,0 +1,125 @@
+h1 {
+  margin-top: 50px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+h2,
+h3,
+h5 {
+  color: rgb(244, 135, 180);
+  font-size: 18px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+small {
+  font-size: 12px;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+  width: 75px;
+  background: transparent;
+}
+
+p,
+h4,
+h6 {
+  text-align: center;
+  font-family: "Roboto Mono", monospace;
+  font-weight: 900;
+  font-size: 18px;
+}
+
+h4 {
+  font-size: 45px;
+  margin-top: 15px;
+}
+
+form .search-bar {
+  margin-top: 10px;
+  margin-left: 153px;
+  border: none;
+  border-radius: 8px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.search-btn {
+  font-family: "Questrial", sans-serif;
+  color: rgb(237, 161, 193);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(240, 238, 238, 0) 100%
+  );
+  border: none;
+  border-radius: 15px;
+  text-transform: uppercase;
+  font-size: 15px;
+  box-shadow: 10px 10px 10px rgba (0, 0, 0, 0.5);
+}
+
+.search-btn:hover {
+  color: rgb(190, 228, 210);
+  background: rgba(237, 161, 193, 0.493);
+}
+
+.weather-app {
+  background: radial-gradient(
+    circle at 7.5% 24%,
+    rgb(237, 161, 193) 0%,
+    rgb(250, 178, 172) 25.5%,
+    rgb(190, 228, 210) 62.3%,
+    rgb(215, 248, 247) 93.8%
+  );
+  max-width: 600px;
+  min-width: 400px;
+  margin: 10px auto;
+  padding: 25px;
+  border: solid 1px white;
+  border-radius: 30px;
+}
+
+.units {
+  position: relative;
+  top: -22px;
+  left: -28px;
+  font-size: 21px;
+}
+
+.small-icons {
+  display: block;
+  margin: 0 auto;
+  width: 40px;
+}
+
+.forecast {
+  margin-bottom: 10px;
+}
+
+.forecast .col-2 {
+  display: block;
+  margin: 0 auto;
+  font-family: "Montserrat", sans-serif;
+  text-transform: uppercase;
+  width: 100px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 15px;
+  text-align: center;
+  border-radius: 30px;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(240, 238, 238, 0) 100%
+  );
+}
