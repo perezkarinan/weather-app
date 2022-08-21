@@ -123,3 +123,8 @@ a {
     rgba(240, 238, 238, 0) 100%
   );
 }
+
+.source-link {
+  display: block;
+  margin: 0 auto;
+}
