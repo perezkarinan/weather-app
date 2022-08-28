@@ -27,8 +27,8 @@ h2.innerHTML = `${day}`;
 //adding time to html
 let h3 = document.querySelector("#time");
 h3.innerHTML = `${hour}:${minutes}`;
-//current temp
 
+//getting current information
 function currentTemp(response) {
   let tempElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -45,12 +45,12 @@ function currentTemp(response) {
   wind.innerHTML = Math.round(response.data.wind.speed);
 }
 
-//adding city searched into h1
+//getting current city
 function search(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4bc3938ce8d1f5e4234ae8d08954dd0d&units=imperial`;
   axios.get(apiUrl).then(currentTemp);
 }
-
+//inserting city into heading
 function handleSearchButton(event) {
   event.preventDefault();
   let cityInput = document.querySelector("#city-input");
@@ -60,5 +60,5 @@ function handleSearchButton(event) {
 //clicking submit button
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSearchButton);
-
+//defaulting NY
 search("New York");
