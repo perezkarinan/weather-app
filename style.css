@@ -51,8 +51,12 @@ form .search-bar {
 
 a {
   text-decoration: none;
+  color: black;
 }
 
+a:hover {
+  color: rgb(237, 161, 193);
+}
 .search-btn {
   font-family: "Questrial", sans-serif;
   color: rgb(237, 161, 193);
