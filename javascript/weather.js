@@ -28,6 +28,54 @@ h2.innerHTML = `${day}`;
 let h3 = document.querySelector("#time");
 h3.innerHTML = `${hour}:${minutes}`;
 
+//forecast day
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+//forecast
+function displayForecast(response) {
+  console.log(response.data);
+  let forecast = response.data.daily;
+
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
+            <div class="col-2">
+              <div class="weather-forecast-date"><small>${formatDay(
+                forecastDay.dt
+              )}</small></div>
+              <img src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png"
+            />
+              <div class="forecast-temperature"> ${Math.round(
+                forecastDay.temp.max
+              )}℉</div>
+            </div>
+            `;
+    }
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
+function getForecast(coords) {
+  let apiKey = "c95d60a1e3adbeb286133f1ebebc2579";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&appid=${apiKey}&units=imperial`;
+
+  axios.get(apiUrl).then(displayForecast);
+}
+
 //getting current information
 function currentTemp(response) {
   let tempElement = document.querySelector("#temperature");
@@ -50,29 +98,7 @@ function currentTemp(response) {
   );
 
   mainIcon.setAttribute("alt", response.data.weather[0].description);
-}
-
-//forecast
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
-
-  let days = ["Thu", "Fri", "Sat", "Sun"];
-  let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-            <div class="col-2">
-              <div class="weather-forecast-date"><small>${day}</small></div>
-              <img src=""small-icons" />
-
-              <div class="forecast-temperature"><p>75℉</p></div>
-            </div>
-            `;
-  });
-
-  forecastHTML = forecastHTML + `</div>`;
-  forecastElement.innerHTML = forecastHTML;
+  getForecast(response.data.coord);
 }
 
 //getting current city
