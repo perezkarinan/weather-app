@@ -52,6 +52,29 @@ function currentTemp(response) {
   mainIcon.setAttribute("alt", response.data.weather[0].description);
 }
 
+//forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let days = ["Thu", "Fri", "Sat", "Sun"];
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+            <div class="col-2">
+              <div class="weather-forecast-date"><small>${day}</small></div>
+              <img src=""small-icons" />
+
+              <div class="forecast-temperature"><p>75℉</p></div>
+            </div>
+            `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 //getting current city
 function search(city) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=4bc3938ce8d1f5e4234ae8d08954dd0d&units=imperial`;
@@ -91,3 +114,4 @@ celsiusLink.addEventListener("click", displayCelsius);
 
 //defaulting NY
 search("New York");
+displayForecast();
